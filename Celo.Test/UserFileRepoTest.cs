@@ -40,7 +40,7 @@ namespace CeloTest.Test
         }
 
         [Fact]
-        public void Should_Upodate_User()
+        public void Should_Update_User()
         {
             //Arrange
             var id = Guid.NewGuid();

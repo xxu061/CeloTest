@@ -80,6 +80,19 @@ namespace Celo.Test
         }
 
         [Fact]
+        public void Should_Update_User_Throw_Argument_Exception()
+        {
+            //Arrange
+            User user = null;
+
+            _mockRepo.Setup(s => s.Update(It.IsAny<User>()));
+            IUserService service = new UserService(_mockRepo.Object);
+
+            //Act, Assert
+            Assert.ThrowsAsync<ArgumentException>(() => service.Update(user));
+        }
+
+        [Fact]
         public void Should_Update_User()
         {
             //Arrange
@@ -133,6 +146,20 @@ namespace Celo.Test
             //Assert
             _mockRepo.Verify(r => r.Delete(user), Times.Once);
         }
+
+        [Fact]
+        public void Should_Delete_User_Throw_Argument_Exception()
+        {
+            //Arrange
+            User user = null;
+
+            _mockRepo.Setup(s => s.Delete(It.IsAny<User>()));
+            IUserService service = new UserService(_mockRepo.Object);
+
+            //Act, Assert
+            Assert.ThrowsAsync<ArgumentException>(() => service.Delete(user));
+        }
+
 
         [Fact]
         public void Should_Filter_Users()

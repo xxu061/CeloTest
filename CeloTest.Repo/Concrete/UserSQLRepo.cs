@@ -59,7 +59,7 @@ namespace CeloTest.Repo
             }
             else
             {
-                throw new NullReferenceException();
+                throw new NullReferenceException(); 
             }
         }
 

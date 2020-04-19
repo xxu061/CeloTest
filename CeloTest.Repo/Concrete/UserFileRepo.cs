@@ -81,6 +81,7 @@ namespace CeloTest.Repo
         {
             await Task.Run(() =>
             {
+                if (t == null) throw new ArgumentNullException();
                 _users.Add(t);
                 _fileLoader.Write(_users);
             });

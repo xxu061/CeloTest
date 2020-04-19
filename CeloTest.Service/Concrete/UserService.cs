@@ -21,6 +21,7 @@ namespace CeloTest.Service
         }
         public async Task Delete(User user)
         {
+            if (user == null) throw new ArgumentNullException();
             await _repo.Delete(user);
         }
 
@@ -49,6 +50,7 @@ namespace CeloTest.Service
 
         public async Task Update(User user)
         {
+            if (user == null) throw new ArgumentNullException();
             await _repo.Update(user);
         }
 
