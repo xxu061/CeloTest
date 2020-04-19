@@ -50,9 +50,9 @@ namespace CeloTest.Test
             users.Add(user);
             _mockContext.Setup(c => c.Read()).Returns(users);
             UserFileRepo repo = new UserFileRepo(_mockContext.Object);
-            updatedUser.FirstName = "Updated";
 
             //Act
+            updatedUser.FirstName = "Updated";
             repo.Update(updatedUser).GetAwaiter().GetResult();
             var result = repo.GetAll().GetAwaiter().GetResult();
 

@@ -88,7 +88,6 @@ namespace Celo.Test
             list.Add(user);
             IEnumerable<User> users = list;
             _mockRepo.Setup(s => s.Update(It.Is<User>(c => c.FirstName == "Update")));
-            _mockRepo.Setup(s => s.Get(It.IsAny<Func<User, bool>>(), null, null)).Returns(Task.FromResult(users));
             IUserService service = new UserService(_mockRepo.Object);
 
             //Act
@@ -126,11 +125,10 @@ namespace Celo.Test
             list.Add(user);
             IEnumerable<User> users = list;
             _mockRepo.Setup(s => s.Delete(user));
-            _mockRepo.Setup(s => s.Get(It.IsAny<Func<User, bool>>(), null, null)).Returns(Task.FromResult(users));
             IUserService service = new UserService(_mockRepo.Object);
 
             //Act
-            service.Delele(user);
+            service.Delete(user);
 
             //Assert
             _mockRepo.Verify(r => r.Delete(user), Times.Once);

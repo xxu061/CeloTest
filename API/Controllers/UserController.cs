@@ -59,7 +59,7 @@ namespace API.Controllers
         {
             if (user == null)
                 throw new ArgumentException("Empty user payload");
-            await _userService.Delele(user);
+            await _userService.Delete(user);
         }
     }
 }

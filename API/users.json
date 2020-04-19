@@ -1,9 +1,1 @@
-[
-  {
-    "FirstName": "John",
-    "LastName": "Doe",
-    "Title": "Mr",
-    "Phone": "021124567",
-    "Email": "John.Doe@gmail.com"
-  }
-]
+[{"Id":"096bdbcd-f982-411e-b980-9815d66fb0f9","Email":"John.Doe@gmail.com","FirstName":"John","LastName":"Doe","Title":0,"DateOfBirth":null,"PhoneNumber":null,"OriginalProfileImageUrl":null,"ThumbnailProfileImageUrl":null},{"Id":"c5bd3198-e859-4857-96ea-547529ff7d95","Email":"Jane.Doe@gmail.com","FirstName":"Jane","LastName":"Doe","Title":1,"DateOfBirth":null,"PhoneNumber":null,"OriginalProfileImageUrl":null,"ThumbnailProfileImageUrl":null}]

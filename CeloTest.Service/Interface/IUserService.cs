@@ -12,6 +12,6 @@ namespace CeloTest.Service
         Task<IList<User>> Filter(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth, int? take, int? skip);
         Task<IList<User>> GetAll();
         Task Update(User user);
-        Task Delele(User user);
+        Task Delete(User user);
     }
 }

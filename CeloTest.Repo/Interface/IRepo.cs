@@ -12,5 +12,6 @@ namespace CeloTest.Repo
         Task<IList<T>> GetAll();
         Task Update(T t);
         Task Delete(T t);
+        Task Add(T t);
     }
 }

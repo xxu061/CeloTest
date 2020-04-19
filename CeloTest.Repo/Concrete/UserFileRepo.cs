@@ -24,8 +24,16 @@ namespace CeloTest.Repo
         {
             await Task.Run(() =>
             {
-                _users.Remove(t);
-                _fileLoader.Write(_users);
+                var user = _users.SingleOrDefault(u => u.Id == t.Id);
+                if (user != null)
+                {
+                    _users.Remove(user);
+                    _fileLoader.Write(_users);
+                }
+                else
+                {
+                    throw new NullReferenceException();
+                }
             });
         }
 
@@ -55,10 +63,26 @@ namespace CeloTest.Repo
         {
             await Task.Run(() =>
             {
-                _users.Remove(t);
+                var user = _users.SingleOrDefault(u => u.Id == t.Id);
+                if (user != null)
+                {
+                    _users.Remove(user);
+                    _users.Add(t);
+                    _fileLoader.Write(_users);
+                }
+                else
+                {
+                    throw new NullReferenceException();
+                }
+            });
+        }
+
+        public async Task Add(User t)
+        {
+            await Task.Run(() =>
+            {
                 _users.Add(t);
                 _fileLoader.Write(_users);
-
             });
         }
 
@@ -66,5 +90,7 @@ namespace CeloTest.Repo
         {
             _users = null;
         }
+
+
     }
 }

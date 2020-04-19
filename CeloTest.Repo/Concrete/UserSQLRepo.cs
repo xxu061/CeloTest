@@ -21,6 +21,10 @@ namespace CeloTest.Repo
 
                 await _context.SaveChangesAsync();
             }
+            else
+            {
+                throw new NullReferenceException();
+            }
         }
 
         public async Task<IEnumerable<User>> Get(Func<User, bool> filter, int? take, int? skip)
@@ -52,6 +56,23 @@ namespace CeloTest.Repo
             {
                 _context.Users.Update(user);
                 await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new NullReferenceException();
+            }
+        }
+
+        public async Task Add(User t)
+        {
+            if (t != null)
+            {
+                await _context.Users.AddAsync(t);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new ArgumentNullException();
             }
         }
 

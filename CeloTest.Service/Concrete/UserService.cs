@@ -19,20 +19,9 @@ namespace CeloTest.Service
         {
             _repo = repo;
         }
-        public async Task Delele(User user)
+        public async Task Delete(User user)
         {
-            if (user == null) throw new ArgumentNullException();
-            var users = await _repo.Get(u => u.Id == user.Id);
-
-            var existUser = users.FirstOrDefault();
-            if (existUser != null)
-            {
-                await _repo.Delete(existUser);
-            }
-            else
-            {
-                throw new NullReferenceException("User ID " + user.Id + " not found");
-            }
+            await _repo.Delete(user);
         }
 
         public async Task<IList<User>> Filter(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth, int? take, int? skip)
@@ -60,18 +49,7 @@ namespace CeloTest.Service
 
         public async Task Update(User user)
         {
-            if (user == null) throw new ArgumentNullException();
-            var users = await _repo.Get(u => u.Id == user.Id);
-
-            var existUser = users.FirstOrDefault();
-            if (existUser != null)
-            {
-                await _repo.Update(existUser);
-            }
-            else
-            {
-                throw new NullReferenceException("User ID " + user.Id + " not found");
-            }
+            await _repo.Update(user);
         }
 
         private UserSearchCriteria ConvertSearchParameter(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth, int? take, int? skip)

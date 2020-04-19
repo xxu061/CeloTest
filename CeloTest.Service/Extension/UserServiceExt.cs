@@ -12,12 +12,12 @@ namespace CeloTest.Service.Extension
             var result = false;
             if (!string.IsNullOrEmpty(searchCriteria.FirstName))
             {
-                result = user.FirstName == searchCriteria.FirstName;
+                result = user.FirstName.ToLower() == searchCriteria.FirstName.ToLower();
             }
 
             if (!string.IsNullOrEmpty(searchCriteria.LastName))
             {
-                result = user.LastName == searchCriteria.LastName;
+                result = user.LastName.ToLower() == searchCriteria.LastName.ToLower();
             }
 
             if (searchCriteria.DateOfBirth != null)
@@ -27,7 +27,7 @@ namespace CeloTest.Service.Extension
 
             if (!string.IsNullOrEmpty(searchCriteria.Email))
             {
-                result = user.Email == searchCriteria.Email;
+                result = user.Email.ToLower() == searchCriteria.Email.ToLower();
             }
 
             if (!string.IsNullOrEmpty(searchCriteria.PhoneNumber))

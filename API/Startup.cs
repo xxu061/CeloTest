@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using CeloTest.Repo;
 using CeloTest.Repo.Context;
@@ -32,7 +33,11 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                    .AddJsonOptions(opts =>
+                    { 
+                        opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    });
             services.AddScoped<IUserService, UserService>();
 
             //We can change the DI here to switch to a different data provider
