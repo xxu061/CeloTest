@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CeloTest.Domain\CeloTest.Domain.csproj" />
+    <ProjectReference Include="..\CeloTest.Repo\CeloTest.Repo.csproj" />
+  </ItemGroup>
+
+</Project>
