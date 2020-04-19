@@ -8,7 +8,7 @@ namespace CeloTest.Service
 {
     public interface IUserService
     {
-        Task<User> GetSingle(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth, int? take, int? skip);
+        Task<User> GetSingle(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth);
         Task<IList<User>> Filter(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth, int? take, int? skip);
         Task<IList<User>> GetAll();
         Task Update(User user);

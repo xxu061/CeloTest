@@ -25,9 +25,9 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("User/GetSingle")]
-        public async Task<User> GetSingle(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth, int? take, int? skip)
+        public async Task<User> GetSingle(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth)
         {
-            return await _userService.GetSingle(firstName, lastName, email, phoneNumber, dateOfBirth, take, skip);
+            return await _userService.GetSingle(firstName, lastName, email, phoneNumber, dateOfBirth);
         }
 
         [HttpGet]

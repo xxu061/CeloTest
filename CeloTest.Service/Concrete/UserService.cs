@@ -39,11 +39,11 @@ namespace CeloTest.Service
             return await _repo.GetAll();
         }
 
-        public async Task<User> GetSingle(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth, int? take, int? skip)
+        public async Task<User> GetSingle(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth)
         {
-            var searchCriteria = ConvertSearchParameter(firstName, lastName, email, phoneNumber, dateOfBirth, take, skip);
+            var searchCriteria = ConvertSearchParameter(firstName, lastName, email, phoneNumber, dateOfBirth);
 
-            var result = await _repo.Get(u => u.IsMatch(searchCriteria), take, skip);
+            var result = await _repo.Get(u => u.IsMatch(searchCriteria));
 
             return result.SingleOrDefault();
         }
@@ -54,7 +54,7 @@ namespace CeloTest.Service
             await _repo.Update(user);
         }
 
-        private UserSearchCriteria ConvertSearchParameter(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth, int? take, int? skip)
+        private UserSearchCriteria ConvertSearchParameter(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth, int? take = null, int? skip = null)
         {
             DateTime dob = new DateTime();
             bool dobValid = false;

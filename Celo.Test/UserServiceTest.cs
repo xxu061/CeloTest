@@ -33,7 +33,7 @@ namespace Celo.Test
             IUserService service = new UserService(_mockRepo.Object);
 
             //Act
-            var result = service.GetSingle(firstName, null, null, null, null, null, null).Result;
+            var result = service.GetSingle(firstName, null, null, null, null).Result;
 
             //Assert
             Assert.Equal(firstName, user.FirstName);
@@ -54,7 +54,7 @@ namespace Celo.Test
             IUserService service = new UserService(_mockRepo.Object);
 
             //Act
-            var result = service.GetSingle(null, null, null, null, "2000/10/01", null, null).Result;
+            var result = service.GetSingle(null, null, null, null, "2000/10/01").Result;
 
             //Assert
             Assert.Equal(dob, result.DateOfBirth);
@@ -76,7 +76,7 @@ namespace Celo.Test
 
             //Act
             //Assert
-            Assert.ThrowsAsync<ArgumentException>(() => service.GetSingle(null, null, null, null, "2000/13/13", null, null));
+            Assert.ThrowsAsync<ArgumentException>(() => service.GetSingle(null, null, null, null, "2000/13/13"));
         }
 
         [Fact]
@@ -159,7 +159,6 @@ namespace Celo.Test
             //Act, Assert
             Assert.ThrowsAsync<ArgumentException>(() => service.Delete(user));
         }
-
 
         [Fact]
         public void Should_Filter_Users()
